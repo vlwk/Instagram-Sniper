@@ -126,4 +126,4 @@ def getPhotoData(user, csv):
 			id2 = json2["media"]["page_info"]["end_cursor"]
 
 		if (idx % 5 == 4):
-			print("user " + user + " done with " + str(idx + 1) + "/" + str(media_count_dict[user]) + " rows, cnt1: " + str(cnt1) + ", cnt2: " + str(cnt2))
+			print("user " + user + " done with " + str(idx + 1) + "/" + str(media_count_dict[user]) + " rows.")

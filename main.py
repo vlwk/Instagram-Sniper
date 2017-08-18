@@ -11,43 +11,43 @@ import time
 import urllib.request
 from urllib.request import Request
 
-def main():
-	# combining everything together
-	csv2 = open("profiles.csv", "w")
-	csv_combined = open("combined.csv", "w")
-
-	csv_combined.write(genHeader(HEADER_LIST1))
-	csv2.write(genHeader(HEADER_LIST2)) # write header2 row to csv2 (all the user profiles)
-
+def createProfiles():
 	to_process = {}
-
-	num_users = 0
 	for user in USER_LIST:
-		ask = int(input("Would you like to process " + user + "? 1 for YES, 0 for NO: "))
+		ask = int(input("Extract profile of " + user + "? 1 for YES, 0 for NO: "))
 		to_process[user] = ask
-		if (ask == 1):
-			num_users += 1
+	if (num_users > 0):
+		csv = open("profiles.csv", "w")
+		csv.write(genHeader(HEADER_LIST2))
+		for user in USER_LIST:
+			if (to_process[user] == 1):
+				getProfile(user, csv)
+		csv.close()
 
-	cnt = 0
+def createPhotoIndividual():
+	to_process = {}
 	for user in USER_LIST:
-		csv1 = open(user + ".csv", "w")
-		csv1.write(genHeader(HEADER_LIST1)) # write header1 row to csv1 (each user)
-		if (to_process[user] == 1):
+		ask = int(input("Extract photo data for " + user + "? 1 for YES, 0 for NO: "))
+		to_process[user] = ask
+	if (num_users > 0):
+		for user in USER_LIST:
+			csv = open(user + ".csv", "w")
+			csv.write(genHeader(HEADER_LIST1))
+			getPhotoData(user, csv)
+			csv.close()
 
-			getProfile(user, csv2)
-			print(user + " " + "csv2 done.")
+def createPhotoCombined():
+	to_process = {}
+	for user in USER_LIST:
+		ask = int(input("Extract photo data for " + user + "? 1 for YES, 0 for NO: "))
+		to_process[user] = ask
+	if (num_users > 0):
+		csv = open("combined.csv", "w")
+		csv.write(genHeader(HEADER_LIST1))
+		for user in USER_LIST:
+			getPhotoData(user, csv)
+		csv.close()
 
-			getPhotoData(user, csv1)
-			print(user + " " + "csv1 done.")
-
-			getPhotoData(user, csv_combined)
-			print(user + " " + "csv_combined done.")
-
-			cnt += 1
-			print("USER: " + user + " DONE WITH EXTRACTION (" + str(cnt) + "/" + str(num_users) + ")")
-		csv1.close()
-
-	csv2.close()
-	csv_combined.close()
-
-main()
+createProfiles()
+createPhotoIndividual()
+createPhotoCombined()
