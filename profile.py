@@ -23,7 +23,6 @@ def getProfile(user, csv):
 			elif (header == "media_count"):
 				val = json2["media"]["count"]
 				to_append = str(val)
-				media_count_dict[user] = int(val)
 			else:
 				to_append = str(json2[header])
 			to_append = fix(to_append)

@@ -1,5 +1,5 @@
 # for extraction of each photo
-HEADER_LIST1 = ["created_unix_time", "created_time", "location", "id", "caption", "code", "comments", "low_res", "low_height", "low_width", "standard_res", "standard_height", "standard_width", "thumbnail_res", "thumbnail_height", "thumbnail_width", "actual_res", "actual_height", "actual_width", "likes", "link"]
+HEADER_LIST1 = ["created_unix_time", "created_time", "image_name", "location", "id", "caption", "code", "comments", "low_res", "low_height", "low_width", "standard_res", "standard_height", "standard_width", "thumbnail_res", "thumbnail_height", "thumbnail_width", "actual_res", "actual_height", "actual_width", "likes", "link"]
 
 # for collection of profile details (mostly for fun)
 HEADER_LIST2 = ["username", "full_name", "id", "biography", "external_url", "external_url_linkshimmed", "followed_by", "follows", "is_private", "is_verified", "media_count", "profile_picture"]

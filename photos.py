@@ -19,7 +19,10 @@ def getPhotoData(user, csv):
 	# and csv_combined (csv with all the photos from all the users combined)
 	id1 = ""
 	id2 = ""
-	for idx in range(media_count_dict[user]):
+
+	num_photos = getMediaCount(user)
+
+	for idx in range(num_photos):
 
 		time.sleep(INTERVAL) # currently set to 0.5
 
@@ -67,6 +70,9 @@ def getPhotoData(user, csv):
 					to_append = tmp_json1["caption"]["text"]
 				except:
 					to_append = ""
+
+			if (header == "image_name"):
+				to_append = user + "/" + user + str(num_photos - idx) + ".jpg"
 
 			if (header == "code"):
 				to_append = tmp_json1["code"]
@@ -126,4 +132,4 @@ def getPhotoData(user, csv):
 			id2 = json2["media"]["page_info"]["end_cursor"]
 
 		if (idx % 5 == 4):
-			print("user " + user + " done with " + str(idx + 1) + "/" + str(media_count_dict[user]) + " rows.")
+			print("user " + user + " done with " + str(idx + 1) + "/" + str(num_photos) + " rows.")

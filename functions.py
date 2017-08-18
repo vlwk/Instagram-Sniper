@@ -8,9 +8,6 @@ import time
 import urllib.request
 from urllib.request import Request
 
-# dictionary to store number of posts per user
-media_count_dict = {}
-
 # print an indented version of a json file
 def beautify(file):
 	return json.dumps(file, sort_keys=True, indent=2)
@@ -29,6 +26,9 @@ def gen(user, sel):
 		return BASE_URL + user + "/media/"
 	if (sel == 2):
 		return BASE_URL + user + "/?__a=1"
+
+def genImageURL(user, idx):
+	return user + "/" + user + str(idx) + ".jpg"
 
 # get json file from a url, can use together with beautify
 def getJson(url):
@@ -53,3 +53,7 @@ def fix(to_append):
 	to_append = to_append.replace(',', ' ')
 	to_append = to_append.lstrip(' ')
 	return to_append
+
+def getMediaCount(user):
+	json2 = getJson(gen(user, 2))["user"]
+	return int(json2["media"]["count"])
