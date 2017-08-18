@@ -43,7 +43,7 @@ def updatePhotos(user, year, month, day):
 
 	for idx in range(num_photos):
 
-		time.sleep(INTERVAL) # currently set to 0.5
+		time.sleep(INTERVAL)
 
 		cnt1 = idx % 20 # index in json1 (20 items per page)
 		cnt2 = idx % 12 # index in json2 (12 items per page)
@@ -71,7 +71,6 @@ def updatePhotos(user, year, month, day):
 			break
 
 		downloadImage(tmp_json2[cnt2]["display_src"], genImageURL(user, num_photos - idx))
-		print("ok")
 
 		# get id for pagination (json1 stores 20 entries per page, json2 stores 12)
 		if (cnt1 == 19):

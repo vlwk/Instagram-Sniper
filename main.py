@@ -1,3 +1,5 @@
+# Refer to README
+
 from constants import *
 from functions import *
 from user_list import USER_LIST
@@ -13,6 +15,7 @@ import time
 import urllib.request
 from urllib.request import Request
 
+# from profile.py
 def createProfiles():
 	to_process = {}
 	num_users = 0
@@ -34,6 +37,7 @@ def createProfiles():
 	else:
 		print("You chose not to download any profiles.")
 
+# from photos.py
 def createPhotoIndividual():
 	to_process = {}
 	num_users = 0
@@ -57,6 +61,7 @@ def createPhotoIndividual():
 	else:
 		print("You chose not to download any photo data.")
 
+# from download.py, downloadPhotos()
 def createDownload():
 	to_process = {}
 	num_users = 0
@@ -77,7 +82,9 @@ def createDownload():
 	else:
 		print("You chose not to download any photos.")
 
+# from download.py, updatePhotos()
 def createDownloadFromDate(user):
+	print("Welcome to createDownloadFromDate. You can choose a date and all the photos posted after that date will be added to the user's photo directory.")
 	year = int(input("Enter a year: "))
 	month = int(input("Enter a month: "))
 	day = int(input("Enter a day: "))
