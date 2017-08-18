@@ -18,7 +18,7 @@ def downloadPhotos(user):
 	print(user + " has " + str(num_photos) + " photos to download.")
 	for idx in range(num_photos):
 		time.sleep(INTERVAL)
-		cnt2 = idx % 12;
+		cnt2 = idx % 12
 		if (cnt2 == 0):
 			json2 = getJson(gen(user, 2) + "&max_id=" + id2)["user"] # getting json from next page
 		tmp_json2 = json2["media"]["nodes"]
@@ -26,7 +26,7 @@ def downloadPhotos(user):
 		if (cnt2 == 11):
 			id2 = json2["media"]["page_info"]["end_cursor"]
 		if (idx % 5 == 4):
-			print("user " + user + " done with " + str(idx + 1) + "/" + str(getMediaCount(user)) + " photos.")
+			print("user " + user + " done with " + str(idx + 1) + "/" + str(num_photos) + " photos.")
 
 def updatePhotos(user, year, month, day):
 	json1 = getJson(gen(user, 1))["items"] # each photo (/media)
@@ -45,8 +45,8 @@ def updatePhotos(user, year, month, day):
 
 		time.sleep(INTERVAL) # currently set to 0.5
 
-		cnt1 = idx % 20; # index in json1 (20 items per page)
-		cnt2 = idx % 12; # index in json2 (12 items per page)
+		cnt1 = idx % 20 # index in json1 (20 items per page)
+		cnt2 = idx % 12 # index in json2 (12 items per page)
 
 		if (cnt1 == 0):
 			json1 = getJson(gen(user, 1) + "?max_id=" + id1)["items"] # getting json from next page
