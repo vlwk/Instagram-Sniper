@@ -98,7 +98,14 @@ def createDownload():
 	else:
 		print("You chose not to download any photos.")
 
-createProfiles()
-createPhotoIndividual()
-createPhotoCombined()
-createDownload()
+def createDownloadFromDate(user):
+	year = int(input("Enter a year: "))
+	month = int(input("Enter a month: "))
+	day = int(input("Enter a day: "))
+	updatePhotos(user, year, month, day)
+
+# createProfiles()
+# createPhotoIndividual()
+# createPhotoCombined()
+# createDownload()
+createDownloadFromDate('sgig')

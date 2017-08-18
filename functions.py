@@ -1,3 +1,5 @@
+# Basic functions used in the rest of the files
+
 from constants import *
 from user_list import USER_LIST
 
@@ -14,9 +16,12 @@ def beautify(file):
 
 # convert from unixtime to a standard time format
 def convUnix(unixTime):
-	import datetime
 	return datetime.datetime.fromtimestamp(unixTime).strftime('%Y-%m-%d %H:%M:%S')
 
+def convNormal(year, month, day):
+	return datetime.datetime(year, month, day)
+
+# download image and save to local directory using urllib
 def downloadImage(url, fileName):
 	urllib.request.urlretrieve(url, fileName)
 
@@ -27,6 +32,7 @@ def gen(user, sel):
 	if (sel == 2):
 		return BASE_URL + user + "/?__a=1"
 
+# generate name that image will be saved as in local directory
 def genImageURL(user, idx):
 	return user + "/" + user + str(idx) + ".jpg"
 
@@ -36,7 +42,7 @@ def getJson(url):
 	request.add_header('api-key', '200')
 	return json.loads(urllib.request.urlopen(request).read().decode('utf8'))
 
-# generate row of comma separated headers for csv for each photo
+# generate row of comma separated headers
 def genHeader(header_list):
 	headerRow = ""
 	for idx in range(len(header_list)):
@@ -54,6 +60,7 @@ def fix(to_append):
 	to_append = to_append.lstrip(' ')
 	return to_append
 
+# obtain number of photos for user
 def getMediaCount(user):
 	json2 = getJson(gen(user, 2))["user"]
 	return int(json2["media"]["count"])
