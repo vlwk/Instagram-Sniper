@@ -23,4 +23,4 @@ Clone / download this repository, then navigate to it in a terminal and run `pyt
 
 ### Important Note
 
-If you encounter a SSL Error while the program is running, increase `INTERVAL` in `constants.py`. It is currently set to 1.0, meaning that there is a `time.interval(1.0)` between every request.
+If you encounter a SSL Error while the program is running, increase `INTERVAL` in `constants.py`. It is currently set to `1.0`, meaning that there is a `time.interval(1.0)` between every request.
