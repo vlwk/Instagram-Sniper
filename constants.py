@@ -9,4 +9,4 @@ USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel MAC OS X 10_10_1) AppleWebKit/537.36
 
 BASE_URL = "https://www.instagram.com/"
 
-INTERVAL = 0.2
+INTERVAL = 0.5

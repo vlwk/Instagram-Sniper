@@ -20,6 +20,9 @@ def convUnix(unixTime):
 	import datetime
 	return datetime.datetime.fromtimestamp(unixTime).strftime('%Y-%m-%d %H:%M:%S')
 
+def downloadImage(url, fileName):
+	urllib.request.urlretrieve(url, fileName)
+
 # generate url (1 for each photo, 2 for profile details)
 def gen(user, sel):
 	if (sel == 1):
