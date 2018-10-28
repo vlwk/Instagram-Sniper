@@ -1,3 +1,5 @@
+Note: This probably doesn't work anymore :(
+
 # Instagram-Sniper
 
 Instagram-Sniper is written in Python 3 to scrape images and profile information from any public Instagram account.
