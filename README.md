@@ -1,4 +1,4 @@
-Note: This probably doesn't work anymore :(
+(Obsolete)
 
 # Instagram-Sniper
 
